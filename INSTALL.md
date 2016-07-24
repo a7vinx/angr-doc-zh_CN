@@ -10,7 +10,7 @@ angr是一个python库，所以要使用它必须把它安装进你的python环�
 ## 依赖
 
 所有的python依赖都应该通过pip或者setup.py脚本处理。
-但是你将会需要编译一些C代码从这里直到结束，所以你需要一个好的编译环境以及python开发头文件。
+但是你将会需要编译一些C代码从这里直到结束，所以你需要一个良好的编译环境以及python开发头文件。
 在依赖安装过程中，你需要安装python库cffi，但是（至少在linux上）你还需要安装了你操作系统的libffi包它才可以运行。
 
 在Ubuntu上，你需要：`sudo apt-get install python-dev libffi-dev build-essential virtualenvwrapper`
@@ -108,7 +108,7 @@ pip install -I --no-use-wheel capstone
 
 ## Claripy and z3
 
-Z3编译起来很奇怪。有时它会无缘无故的完全失败，提示由于一些文件或文件夹不存在而无法叉棍件对象文件。你只需要重新编译：
+Z3编译起来很奇怪。有时它会无缘无故的完全失败，提示由于一些文件或文件夹不存在而无法创建对象文件。你只需要重新编译：
 
 ```bash
 pip install -I --no-use-wheel angr-only-z3-custom
