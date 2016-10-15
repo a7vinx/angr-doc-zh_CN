@@ -1,3 +1,4 @@
+
 顶层接口
 ====================
 
@@ -21,11 +22,11 @@
 <Loaded true, maps [0x400000:0x4004000]>
 ```
 
- - *arch*是`archinfo.Arch`对象的一个实例，代表了目标程序是为了哪种架构而编译的。更多信息在[这里](https://github.com/angr/archinfo/blob/master/archinfo/arch_amd64.py)。你经常会用到的是`arch.bits`，`arch.bytes` （它在[`Arch`类](https://github.com/angr/archinfo/blob/master/archinfo/arch.py)中使用`@property` 声明），`arch.name`, 和`arch.memory_endness`.
- - *entry*是二进制程序的入口点。
- - *filename*是程序的绝对路径。
- - *loader*是[cle.Loader](https://github.com/angr/cle/blob/master/cle/loader.py)的关于这个程序的一个实例。详细使用方法可以看[这里](./loading.md)。
- 
+- *arch*是`archinfo.Arch`对象的一个实例，代表了目标程序是为了哪种架构而编译的。更多信息在[这里](https://github.com/angr/archinfo/blob/master/archinfo/arch_amd64.py)。你经常会用到的是`arch.bits`，`arch.bytes` （它在[`Arch`类](https://github.com/angr/archinfo/blob/master/archinfo/arch.py)中使用`@property` 声明），`arch.name`, 和`arch.memory_endness`.
+- *entry*是二进制程序的入口点。
+- *filename*是程序的绝对路径。
+- *loader*是[cle.Loader](https://github.com/angr/cle/blob/master/cle/loader.py)的关于这个程序的一个实例。详细使用方法可以看[这里](./loading.md)。
+
 ## 分析与探索者
 
 ```python
@@ -97,8 +98,8 @@
 - *factory.entry_state* 返回一个初始化在程序入口点状态的SimState对象。
 - *factory.call_state* 返回一个初始化在使用给定的参数完成指定地址处的函数调用的SimState对象。
 - *factory.full_init_state* 返回一个相似于`entry_state`的SimState对象。但是和入口点不同的是，程序计数器（PC）指向一个服务于动态装载器的SimProcedure并且在跳到入口点之前会调用每一个共享库的初始化器。
-- *factory.path* 返回一个路径(Path)对象。既然路径只是对SimStates的轻量包装，你可以使用状态对象作为一个参数调用`path`然后得到一个对这一状态包装好的路径。在简单情况中，你传递给`path`的关键字参数将会传给`entry_state` 来创建一个用来包装的状态对象（state）。[这里](paths.md)有进一步讨论。
-- *factory.path_group* 创建一个路径群！根本上来说，路径群是路径的智能列表，所以你可以传给它路径，状态或者是路径或状态的list作为参数。[这里](pathgroups.md)有进一步讨论。
+- *factory.path* 返回一个Path对象。既然Path只是对SimStates的轻量包装，你可以使用state对象作为一个参数调用`path`然后得到一个对这一state包装好的Path对象。在简单情况中，你传递给`path`的关键字参数将会传给`entry_state` 来创建一个用来包装的state对象。[这里](paths.md)有进一步讨论。
+- *factory.path_group* 创建一个路径群！根本上来说，路径群是Path的智能列表，所以你可以传给它Path对象，State对象或者是Path或State的list作为参数。[这里](pathgroups.md)有进一步讨论。
 - *factory.callable* 是非常酷的工具。Callables是可以调用任何二进制代码的FFI（foreign functions interface，远程函数接口）。[这里](structured_data.md)有进一步讨论。
 - *factory.cc* 初始化一个调用惯例对象。它可以使用不同的参数或者甚至函数原型来初始化，并且可以作为参数传递给factory.callable或者factory.call_state来自定义参数和返回值以及返回地址在内存中的布局。[这里](structured_data.md)有进一步讨论。
 
