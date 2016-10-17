@@ -5,7 +5,7 @@ angr是一个多架构的二进制分析平台，具备对二进制文件的动�
 大概看来，要做到这些必须要克服一些问题：
 
 - 装载二进制文件到到分析平台
-- 转换二进制文件为中间描述（intermediate representation）（IR）
+- 转换二进制文件为中间语言（intermediate representation）（IR）
 - 转换IR为语义描述（即它做什么而不是它是什么）
 - 执行真正的分析，这包括：
   - 部分或者全部的静态分析（即依赖分析，程序分片）
@@ -19,9 +19,9 @@ angr拥有的组件能满足所有这些挑战。
 
 angr安装完成后，你就可以装载二进制程序进行分析了。这个过程以及支持它的angr组件CLE的详细描述在[这里](./loading.md)。
 
-# 中间代表（Intermediate Representation）
+# 中间语言（Intermediate Representation）
 
-angr使用中间描述（具体来说，VEX）在不同的架构上分析二进制文件。关于IR的详细说明在[这里](./ir.md)。
+angr使用中间语言（具体来说，VEX）在不同的架构上分析二进制文件。关于IR的详细说明在[这里](./ir.md)。
 
 # 求解引擎（Solver Engine）
 
